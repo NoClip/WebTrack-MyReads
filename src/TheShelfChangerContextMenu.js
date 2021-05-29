@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 export class ShelfChangerContextMenu extends Component {
+    // call onShelfContextMenuChange to update shelf status
     onChange = (event) => {
         this.props.onShelfContextMenuChange(this.props.TheBook, event.target.value);
     }

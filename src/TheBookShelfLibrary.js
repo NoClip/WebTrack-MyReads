@@ -3,6 +3,7 @@ import TheBookItem from './TheBookItem'
 
 export class TheBookShelfLibrary extends Component {
 
+    // array of shelf types values and description
     BookShelfLibraryTypes = [
         // { value: 'none', description: 'Add Your Book Here...' },
         { value: 'currentlyReading', description: 'Currently Reading' },
@@ -11,6 +12,8 @@ export class TheBookShelfLibrary extends Component {
     ];
 
     renderBookShelfItems() {
+        // loop inside the shelf types (BookShelfLibraryTypes)
+        // and render books for that shelf type 
         return this.BookShelfLibraryTypes.map((shelfType) => (
             <div className="bookshelf" key={shelfType.value}>
                 <h2 className="bookshelf-title">{shelfType.description}</h2>

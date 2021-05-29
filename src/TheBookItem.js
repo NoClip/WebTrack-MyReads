@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import TheShelfChangerContextMenu from './TheShelfChangerContextMenu'
 
 export class TheBookItem extends Component {
+    // return empty string if no book thumbnail
     getImageLinkValue = (imageLinks) => {
         return imageLinks !== undefined ? 'url(' + imageLinks.smallThumbnail + ')' : '';
     }
 
+    // return empty string if no book authors
     getBookAuthorsValue = (authors) => {
         return authors !== undefined ? authors.join(', ') : '';
     }

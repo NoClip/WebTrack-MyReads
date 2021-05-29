@@ -5,22 +5,27 @@ import TheSearchPageOfTheApp from './TheSearchPageOfTheApp'
 import TheMainPageOfTheApp from './TheMainPageOfTheApp'
 import { Route } from 'react-router-dom'
 class BooksApp extends React.Component {
+  // state contains user's books
   state = {
     AllBooksState: []
   }
 
+  // get all books from API
   componentDidMount() {
     this.RefreshBooksState();
   }
 
+  // get all books from API
   RefreshBooksState() {
     BooksAPI.getAll()
       .then(allBooksFromApi => {
         this.setState({ AllBooksState: allBooksFromApi })
-        //console.log(this.state.AllBooksState);
       });
   }
 
+  // when user choose the shelf
+  // updates the shelf using the API
+  // and update the state
   onShelfContextMenuChange = (updatedBook, updatedShelf) => {
     BooksAPI
       .update(updatedBook, updatedShelf)

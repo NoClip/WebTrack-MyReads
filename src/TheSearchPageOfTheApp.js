@@ -32,46 +32,38 @@ export class TheSearchPageOfTheApp extends Component {
         }
     };
 
+    // add "shelf" property to the array returned from API array
+    // 
     setShelfTypesForSearchResult = (apiSearchResult) => {
         let searchResultBooks = apiSearchResult;
 
+        // loop inside the searchResultBooks (from API)
+        // and inner loop inside AllBooks (state from app.js)
+        // assign shelf property to searchResultBooks (from API)
+        // from from AllBooks 
         for (const resultBook of searchResultBooks) {
             for (let bookFromProps of this.props.AllBooks) {
                 if (resultBook.id === bookFromProps.id) {
                     resultBook.shelf = bookFromProps.shelf;
-                    // return resultBook;
-                    //console.log('equls');
                 }
             }
         }
 
+        // assign 'none' to books that doesn't have shelf property
         searchResultBooks
             .filter(book => book.shelf === undefined)
             .map(book => book.shelf = 'none');
 
+        // update the state searchResultBooks
         this.setState({ SearchResultState: searchResultBooks });
+
         return searchResultBooks;
-
-        // let searchResultBooks = apiSearchResult.map((resultBook => {
-        //     for (let bookFromProps of this.props.AllBooks) {
-        //         if (resultBook.id === bookFromProps.id) {
-        //             resultBook.shelf = bookFromProps.shelf;
-        //             return resultBook;
-        //             console.log('equls');
-        //         }
-        //         // else {
-        //         //     console.log('none');
-        //         //     resultBook.shelf = 'none';
-        //         // }
-        //     }
-        //     // console.log({title: resultBook.title, shelf: resultBook.shelf });
-
-        //}) ));
-
-
     };
-
+  // when user choose the shelf
+  // updates the shelf using the API by calling this.props.onShelfContextMenuChange (from app.js)
+  // and update the search state
     onSearchShelfContextMenuChange = (updatedBook, updatedShelf) => {
+
         this.props.onShelfContextMenuChange(updatedBook, updatedShelf);
 
         this.setState({
