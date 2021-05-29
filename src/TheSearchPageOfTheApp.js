@@ -59,9 +59,10 @@ export class TheSearchPageOfTheApp extends Component {
 
         return searchResultBooks;
     };
-  // when user choose the shelf
-  // updates the shelf using the API by calling this.props.onShelfContextMenuChange (from app.js)
-  // and update the search state
+
+    // when user choose the shelf
+    // updates the shelf using the API by calling this.props.onShelfContextMenuChange (from app.js)
+    // and update the search state
     onSearchShelfContextMenuChange = (updatedBook, updatedShelf) => {
 
         this.props.onShelfContextMenuChange(updatedBook, updatedShelf);

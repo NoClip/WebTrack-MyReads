@@ -16,12 +16,12 @@ class BooksApp extends React.Component {
   }
 
   // get all books from API
-  RefreshBooksState() {
+  RefreshBooksState = () => {
     BooksAPI.getAll()
       .then(allBooksFromApi => {
         this.setState({ AllBooksState: allBooksFromApi })
       });
-  }
+  };
 
   // when user choose the shelf
   // updates the shelf using the API
@@ -39,7 +39,7 @@ class BooksApp extends React.Component {
           })
         });
       });
-  }
+  };
 
   render() {
     return (

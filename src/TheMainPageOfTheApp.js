@@ -3,6 +3,11 @@ import TheBookShelfLibrary from './TheBookShelfLibrary'
 import { Link } from 'react-router-dom'
 
 export class TheMainPageOfTheApp extends Component {
+    // refresh AllBooks state
+    componentDidMount() {
+        this.props.RefreshBooksState();
+    }
+
     render() {
         return (
             <div className="list-books">
