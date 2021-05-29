@@ -4,6 +4,7 @@ import TheBookItem from './TheBookItem'
 export class TheBookShelfLibrary extends Component {
 
     BookShelfLibraryTypes = [
+        // { value: 'none', description: 'Add Your Book Here...' },
         { value: 'currentlyReading', description: 'Currently Reading' },
         { value: 'wantToRead', description: 'Want to Read' },
         { value: 'read', description: 'Read' },
@@ -17,7 +18,6 @@ export class TheBookShelfLibrary extends Component {
                     <ol className="books-grid">
                         {/* get the same type as shelfType */}
                         {
-
                             this.props.AllBooks
                                 .filter((bookShelfType) => (bookShelfType.shelf === shelfType.value))
                                 .map(TheBook => (
@@ -26,9 +26,10 @@ export class TheBookShelfLibrary extends Component {
                                             ShelfTypeValue={shelfType.value}
                                             TheBook={TheBook}
                                             onShelfContextMenuChange={this.props.onShelfContextMenuChange}
-                                            />
+                                        />
                                     </li>
-                                ))}
+                                ))
+                        }
 
                     </ol>
                 </div>
